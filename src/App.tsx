@@ -32,7 +32,9 @@ import {
   download,
 } from "./storage";
 import Studio from "./Studio";
-type Page = "dashboard" | "studio" | "gallery" | "illustration" | "brand";
+import Templates from "./Templates";
+type Page =
+  "templates" | "dashboard" | "studio" | "gallery" | "illustration" | "brand";
 const categories = ["전체 작품", "홍보물", "블로그", "일러스트", "개인 작품"];
 const presets = [
   { name: "블로그 썸네일", width: 1200, height: 630 },
@@ -219,6 +221,7 @@ export default function App() {
             [
               { id: "dashboard", icon: LayoutDashboard, label: "나의 작업실" },
               { id: "studio", icon: Palette, label: "이미지 스튜디오" },
+              { id: "templates", icon: Copy, label: "템플릿 서랍" },
               { id: "illustration", icon: Sparkles, label: "일러스트 작업실" },
               { id: "brand", icon: BookOpen, label: "브랜드 라이브러리" },
               { id: "gallery", icon: Images, label: "나의 갤러리" },
@@ -289,15 +292,17 @@ export default function App() {
           </button>
           <span>
             WORKSPACE <ChevronRight size={12} />{" "}
-            {page === "dashboard"
-              ? "나의 작업실"
-              : page === "gallery"
-                ? "나의 갤러리"
-                : page === "studio"
-                  ? "이미지 스튜디오"
-                  : page === "brand"
-                    ? "브랜드 라이브러리"
-                    : "일러스트 작업실"}
+            {page === "templates"
+              ? "템플릿 서랍"
+              : page === "dashboard"
+                ? "나의 작업실"
+                : page === "gallery"
+                  ? "나의 갤러리"
+                  : page === "studio"
+                    ? "이미지 스튜디오"
+                    : page === "brand"
+                      ? "브랜드 라이브러리"
+                      : "일러스트 작업실"}
           </span>
           <div>
             <span className="privacy">오직 나를 위한 창작 공간</span>
@@ -365,6 +370,19 @@ export default function App() {
                     <span className="hero-doodle">✳︎</span>
                   </div>
                 </section>
+                <button
+                  className="template-dashboard-link"
+                  onClick={() => navigate("templates")}
+                >
+                  <Copy size={20} />
+                  <div>
+                    <strong>내용만 바꾸면 완성되는 나의 템플릿 서랍</strong>
+                    <span>
+                      한의원 안내 · 블로그 · 일러스트 · 개인 작품, 18가지 형식
+                    </span>
+                  </div>
+                  <ArrowUpRight size={19} />
+                </button>
                 <section className="quick-grid">
                   {[
                     {
@@ -597,6 +615,8 @@ export default function App() {
                   </div>
                 )}
               </>
+            ) : page === "templates" ? (
+              <Templates open={open} />
             ) : (
               <div className="future-page">
                 <span className="pill">COMING IN PHASE 02</span>
