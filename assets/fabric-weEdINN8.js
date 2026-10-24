@@ -501,4 +501,4 @@ void main() {
     color.b += max != color.b ? (max - color.b) * amt : 0.00;
     gl_FragColor = color;
   }
-`}applyTo2d(t){let{imageData:{data:e}}=t;const s=-this.vibrance;for(let r=0;r<e.length;r+=4){const i=e[r],n=e[r+1],o=e[r+2],h=Math.max(i,n,o),l=(i+n+o)/3,c=2*Math.abs(h-l)/255*s;e[r]+=h!==i?(h-i)*c:0,e[r+1]+=h!==n?(h-n)*c:0,e[r+2]+=h!==o?(h-o)*c:0}}sendUniformData(t,e){t.uniform1f(e.uVibrance,-this.vibrance)}isNeutralState(){return this.vibrance===0}}p(cs,"type","Vibrance"),p(cs,"defaults",{vibrance:0}),p(cs,"uniformLocations",["uVibrance"]),T.setClass(cs);export{Pt as N,gi as X,Ct as j,lt as o};
+`}applyTo2d(t){let{imageData:{data:e}}=t;const s=-this.vibrance;for(let r=0;r<e.length;r+=4){const i=e[r],n=e[r+1],o=e[r+2],h=Math.max(i,n,o),l=(i+n+o)/3,c=2*Math.abs(h-l)/255*s;e[r]+=h!==i?(h-i)*c:0,e[r+1]+=h!==n?(h-n)*c:0,e[r+2]+=h!==o?(h-o)*c:0}}sendUniformData(t,e){t.uniform1f(e.uVibrance,-this.vibrance)}isNeutralState(){return this.vibrance===0}}p(cs,"type","Vibrance"),p(cs,"defaults",{vibrance:0}),p(cs,"uniformLocations",["uVibrance"]),T.setClass(cs);export{Pt as N,$t as U,gi as X,kt as c,Ct as j,lt as o};
